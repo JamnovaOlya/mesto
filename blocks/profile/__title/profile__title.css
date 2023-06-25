@@ -1,0 +1,22 @@
+.profile__title {
+  display: flex;
+  flex-direction: column;
+  max-width: 294px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 48px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0 24px 8px 0;
+  }
+
+  @media screen and (max-width: 767px) {
+    .profile__title {
+      max-width: 189px;
+      font-size: 27px;
+      line-height: 32px;
+      margin: 22px 12px 8px 28px;
+    }
+  }
