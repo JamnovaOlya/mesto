@@ -10,13 +10,11 @@
     <body>
         <div class="page">
             <header class="header">
-                <img class="header__logo" src="images/Vector.png" alt="Лого" />
+                <img class="header__logo" src="images/logo.svg" alt="Логотип" />
             </header>
             <main class="content">
                 <section class="profile">
-                    <button class="profile__avatar-button">
                         <img class="profile__avatar" src="images/image.jpg" alt="Жак-Ив Кусто" />
-                    </button>
                     <div class="profile__info">
                         <div class="profile__edit">
                             <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -28,61 +26,48 @@
                     </div>
                     <button type="button" aria-label="Кнопка добавления элемента" class="profile__add-item"></button>
                 </section>
-
                 <section class="elements">
-                    <ul class="elements-grid">
+                    <ul class="elements__grid">
                         <li class="element">
                             <img class="element__image" src="images/mossbrae.jpg" alt="Водопады Моссбро" />
                             <div class="element__footer">
                                 <h2 class="element__title">Моссбро</h2>
-                                <div class="element__like-container">
                                     <button type="button" aria-label="Кнопка поставить лайк" name="addlike" class="element__button-like"></button>
-                                </div>
                             </div>
                         </li>
                         <li class="element">
                             <img class="element__image" src="images/seoul.jpg" alt="Сеул" />
                             <div class="element__footer">
                                 <h2 class="element__title">Сеул</h2>
-                                <div class="element__like-container">
                                     <button type="button" aria-label="Кнопка поставить лайк" name="addlike" class="element__button-like"></button>
-                                </div>
                             </div>
                         </li>
                         <li class="element">
                             <img class="element__image" src="images/seceda.jpg" alt="Гора Сечеда" />
                             <div class="element__footer">
                                 <h2 class="element__title">Гора Сечеда</h2>
-                                <div class="element__like-container">
                                     <button type="button" aria-label="Кнопка поставить лайк" name="addlike" class="element__button-like"></button>
-                                </div>
                             </div>
                         </li>
                         <li class="element">
                             <img class="element__image" src="images/duisburg.jpg" alt="Коала зоопарка Дуйсбурга" />
                             <div class="element__footer">
                                 <h2 class="element__title">Коала зоопарка Дуйсбурга</h2>
-                                <div class="element__like-container">
                                     <button type="button" aria-label="Кнопка поставить лайк" name="addlike" class="element__button-like"></button>
-                                </div>
                             </div>
                         </li>
                         <li class="element">
                             <img class="element__image" src="images/dinant.jpg" alt="Динан" />
                             <div class="element__footer">
                                 <h2 class="element__title">Динан</h2>
-                                <div class="element__like-container">
                                     <button type="button" aria-label="Кнопка поставить лайк" name="addlike" class="element__button-like"></button>
-                                </div>
                             </div>
                         </li>
                         <li class="element">
                             <img class="element__image" src="images/kapadokya.jpg" alt="Каппадокия" />
                             <div class="element__footer">
                                 <h2 class="element__title">Каппадокия</h2>
-                                <div class="element__like-container">
                                     <button type="button" aria-label="Кнопка поставить лайк" name="addlike" class="element__button-like"></button>
-                                </div>
                             </div>
                         </li>
                     </ul>
@@ -97,9 +82,9 @@
                     <h2 class="popup__heading">Редактировать профиль</h2>
                     <form name="profileform" class="popup__form">
                         <input type="text" value="Жак-Ив Кусто" id="name-input" name="name" class="popup__input popup__input_type_name" placeholder="Введите имя" required />
-                        <span class="name-input-error popup__input-error">Заполните пропущенное поле</span>
+                        <span class="popup__input-error popup__input-error_type_name"></span>
                         <input type="text" value="Исследователь океана" id="job-input" name="job" class="popup__input popup__input_type_job" placeholder="Ваша профессия" required />
-                        <span class="job-input-error popup__input-error">Заполните пропущенное поле</span>
+                        <span class="popup__input-error popup__input-error_type_job"></span>
                         <button type="submit" aria-label="Кнопка сохранения формы" class="popup__save-button">Сохранить</button>
                     </form>
                 </div>

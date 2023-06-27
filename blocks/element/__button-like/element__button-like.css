@@ -1,5 +1,6 @@
 .element__button-like {
   background-image: url("../../../images/Group.svg");
+  background-color: #FFFFFF;
   width: 22px;
   height: 19px;
   background-repeat: no-repeat;
@@ -7,7 +8,7 @@
   cursor: pointer;
   border: none;
   padding: 0;
-  margin: 0;
+  margin-top: 6px;
 }
 
 .element__button-like:hover {
