@@ -9,8 +9,8 @@ const jobEditElement = document.querySelector('.profile__subtitle');
 
 function handlEditClick() {
   popupElement.classList.add('popup_opened');
-  nameInputElement.value = nameEditElement.textContent;
-  jobInputElement.value = jobEditElement.textContent;
+  nameInputElement.value = nameEditElement.innerText;
+  jobInputElement.value = jobEditElement.innerText;
 }
 
 function handlCloseClick() {
@@ -20,8 +20,8 @@ function handlCloseClick() {
 function handleFormSubmit(evt) {
   evt.preventDefault();
   popupElement.classList.remove('popup_opened');
-  nameEditElement.textContent = nameInputElement.value;
-  jobEditElement.textContent = jobInputElement.value;
+  nameEditElement.innerText = nameInputElement.value;
+  jobEditElement.innerText = jobInputElement.value;
 }
 
 editButtonElement.addEventListener('click', handlEditClick);
