@@ -1,13 +1,14 @@
 .popup__save-button {
-  margin: 14px 0 33px;
+  height: 50px;
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
-  padding: 0;
   color: #ffffff;
   background-color: #000;
   border-radius: 2px;
-  height: 50px;
+  border: 0;
+  padding: 0;
+  margin: 14px 0 33px;
   cursor: pointer;
   -webkit-appearance: none;
   -moz-appearance: none;
