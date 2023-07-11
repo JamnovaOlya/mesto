@@ -1,4 +1,4 @@
-.profile__add-item {
+.profile__add-element {
   width: 150px;
   height: 50px;
   background-image: url("../../../images/AddButton.svg");
@@ -12,13 +12,13 @@
 }
 
 @media screen and (max-width: 767px) {
-  .profile__add-item {
+  .profile__add-element {
     background-image: url("../../../images/AddButton2.svg");
     width: 282px;
     margin: 32px auto 0;
   }
 }
 
-.profile__add-item:hover {
+.profile__add-element {
   opacity: 0.6;
 }

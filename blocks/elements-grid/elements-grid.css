@@ -1,4 +1,4 @@
-.elements__grid {
+.elements-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, 282px);
   justify-content: center;
@@ -9,7 +9,7 @@
 }
 
 @media screen and (max-width: 767px) {
-  .elements__grid {
+  .elements-grid {
     justify-content: center;
   }
 }

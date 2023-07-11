@@ -1,4 +1,4 @@
-.element__button-like {
+.element__like-button {
   background-image: url("../../../images/Group.svg");
   background-color: #FFFFFF;
   width: 22px;
@@ -11,6 +11,6 @@
   margin-top: 6px;
 }
 
-.element__button-like:hover {
+.element__like-button:hover {
   opacity: 0.5;
 }
