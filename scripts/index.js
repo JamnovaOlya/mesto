@@ -9,7 +9,7 @@ const jobEditElement = document.querySelector('.profile__subtitle');
 const popupEditProfile = document.querySelector("popup_type_profile");
 const popupAddElement = document.querySelector('.popup_type_element');
 const addButtonElement = document.querySelector('.profile__add-element');
-const closeAddButtonElement = document.querySelector('.popup_add__close-button');
+const closeAddButtonElement = document.querySelector('.popup__close-button_add');
 const placeTitleInputElement = document.querySelector('.popup__input_type_title');
 const imageLinkInputElement = document.querySelector('.popup__input_type_image');
 const containerElement = document.querySelector('.elements-grid');
@@ -22,7 +22,7 @@ const cardTemplate = document.querySelector('#card').content;
 const popupImageElement = document.querySelector('.popup_type_image');
 const picturePopupElement = document.querySelector('.popup__image');
 const captionPopupElement = document.querySelector('.popup__caption');
-const closeImageButtonElement = document.querySelector('.popup_image__close-button');
+const closeImageButtonElement = document.querySelector('.popup__close-button_image');
 
 const initialCards = [
   {
