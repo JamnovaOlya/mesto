@@ -3,12 +3,11 @@
   height: 50px;
   background-image: url("../../../images/AddButton.svg");
   background-color: transparent;
-  border: 2px solid #FFFFFF;
+  border: 2px solid #FFF;
   background-position: center;
   border-radius: 2px;
   padding: 0;
   margin-left: auto;
-  opacity: 0.6;
   cursor: pointer;
 }
 
@@ -20,3 +19,6 @@
   }
 }
 
+.profile__add-element:hover {
+  opacity: 0.6;
+}

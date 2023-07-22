@@ -12,13 +12,17 @@ const addButtonElement = document.querySelector('.profile__add-element');
 const closeAddButtonElement = document.querySelector('.popup-add__close-button');
 const placeTitleInputElement = document.querySelector('.popup__input_type_title');
 const imageLinkInputElement = document.querySelector('.popup__input_type_image');
-const containerElement = document.querySelector('.elements');
+const containerElement = document.querySelector('.elements-grid');
 const formAddElement = document.querySelector('#formAddElement');
 const inputTitleAddElement = document.querySelector('#formAddElement .popup__input_type_title');
 const inputLinkAddElement = document.querySelector('#formAddElement .popup__input_type_image');
 const gridElement = document.querySelector('.elements-grid');
 const popupDeleteButtonElement = document.querySelector(".popup_type_delete");
 const cardTemplate = document.querySelector('#card').content;
+const popupImageElement = document.querySelector('.popup_type_image');
+const picturePopupElement = document.querySelector('.popup__image');
+const captionPopupElement = document.querySelector('.popup__caption');
+const closeImageButtonElement = document.querySelector('.popup-image__close-button');
 
 const initialCards = [
   {
@@ -55,14 +59,8 @@ const createCard = (titleValue, linkValue) => {
   const likeButtonElement = cardElement.querySelector('.element__like-button');
   const deleteButtonElement = cardElement.querySelector('.element__delete-button');
 
-  titleElement.textContent = titleValue;
   imageElement.src = linkValue;
-
-  imageElement.addEventListener('click', () => {
-    const cardLink = imageElement.getAttribute('src');
-    const cardTitle = titleElement.textContent;
-    openPopupImage(cardLink, cardTitle);
-  })
+  titleElement.textContent = titleValue;
 
   likeButtonElement.addEventListener('click', () => {
     likeButtonElement.classList.toggle('element__like-button_active')
@@ -72,6 +70,16 @@ const createCard = (titleValue, linkValue) => {
     const card = deleteButtonElement.parentElement;
     card.remove()
   })
+
+  cardElement.addEventListener('click', () => {
+  popupImageElement.classList.add('popup_opened');
+  popupImageElement.querySelector('.popup__image').src = linkValue;
+  popupImageElement.querySelector('.popup__caption').textContent = titleValue;
+  });
+
+  closeImageButtonElement.addEventListener('click', () => {
+    popupImageElement.classList.remove('popup_opened')
+  });
 
   return cardElement;
 }
@@ -102,13 +110,14 @@ function handleFormSubmit(evt) {
   jobEditElement.innerText = jobInputElement.value;
 }
 
-function handlAddPopupClick () {
+function handlAddPopupClick() {
   popupAddElement.classList.add('popup_opened')
 }
 
 function handlCloseAddPopupClick() {
   popupAddElement.classList.remove('popup_opened')
 }
+
 
 initialCards.forEach((card) => {
   const cardElement = createCard(card.title, card.link);
