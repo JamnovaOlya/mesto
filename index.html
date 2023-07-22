@@ -25,21 +25,21 @@
                         </p>
                     </div>
                     <button type="button" aria-label="Кнопка добавления элемента" class="profile__add-element"></button>
-                </section>
-                <section class="elements">
-                  <ul class="elements-grid"> </ul>
-                </section>
-              </main>
-                  <template id="element">
-                        <li class="element">
-                            <img class="element__image" src="#" alt="" />
-                            <button type="button" aria-label="Кнопка удаления элемента" class="element__delete-button"></button>
-                            <div class="element__footer">
-                                <h2 class="element__title">Моссбро</h2>
-                                <button type="button" aria-label="Кнопка поставить лайк" name="addlike" class="element__like-button"></button>
-                            </div>
-                        </li>
-                      </template>
+                  </section>
+                  <section class="elements">
+                    <ul class="elements-grid"></ul>
+                  </section>
+                </main>
+                    <template id="card">
+                          <li class="element">
+                              <img class="element__image" src="#" alt="" />
+                              <button type="button" aria-label="Кнопка удаления элемента" class="element__delete-button"></button>
+                              <div class="element__footer">
+                                  <h2 class="element__title"></h2>
+                                  <button type="button" aria-label="Кнопка поставить лайк" name="addlike" class="element__like-button"></button>
+                              </div>
+                          </li>
+                        </template>
             <footer class="footer">
                 <p class="footer__copyright">© 2023 Mesto Russia</p>
             </footer>
@@ -58,9 +58,9 @@
               </div>
               <div class="popup_type_element popup">
                 <div class="popup__container">
-                  <button type="button" aria-label="Кнопка закрытия попапа" class="popup__close-button"></button>
+                  <button type="button" aria-label="Кнопка закрытия попапа" class="popup-add__close-button"></button>
                     <h2 class="popup__heading">Новое место</h2>
-                    <form name="elementForm" class="popup__form">
+                    <form name="elementForm" class="popup__form" id="formAddElement">
                         <input type="text" name="name" id="title-input" class="popup__input popup__input_type_title" placeholder="Название" required />
                         <span class="popup__input-error popup__input-error_type_title"></span>
                         <input type="url" name="link" id="url-input" class="popup__input popup__input_type_image" placeholder="Ссылка на картинку" required  />
@@ -73,12 +73,12 @@
                 <div class="popup__container">
                     <img class="popup__image" alt="" />
                     <p class="popup__caption"></p>
-                    <button type="button" aria-label="Кнопка закрытия попапа" class="popup__close-button"></button>
+                    <button type="button" aria-label="Кнопка закрытия попапа" class="popup-image__close-button"></button>
                 </div>
             </div>
             <div class="popup_type_delete popup">
               <div class="popup__container">
-                  <button type="button" aria-label="Кнопка закрытия попапа" class="popup__close-button"></button>
+                  <button type="button" aria-label="Кнопка закрытия попапа" class="popup-delete__close-button"></button>
                   <h3 class="popup__title popup__title_delete">Вы уверены?</h3>
                   <form class="popup__form popup__form_delete" name="deleteForm">
                       <button type="submit" aria-label="Кнопка сохранения формы" class="popup__save-button">Да</button>
