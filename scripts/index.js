@@ -134,6 +134,29 @@ function handlCloseImagePopup() {
   closePopup(popupImageElement)
 }
 
+function closePopupOverlay(evt) {
+  if (evt.target === evt.currentTarget) {
+    const popup = document.querySelector(openPopup);
+    closePopup(popup);
+}
+  }
+
+const closePopupButtons = document.querySelectorAll();
+closePopupButtons.forEach((button) => {
+  const popup = button.closest('.popup');
+  button.addEventListener('click', () => { closePopup(popup);
+  });
+  popup.addEventListener('click', (evt) => { closePopupOverlay(evt);
+  });
+});
+
+function closePopupEsc(evt) {
+  if (evt.key === 'Escape') {
+    const popup = document.querySelector(openPopup);
+    closePopup(popup);
+  }
+}
+
 editButtonElement.addEventListener('click', handlEditPopupClick);
 
 closeButtonElement.addEventListener('click', handlCloseEditPopup);
@@ -147,3 +170,11 @@ closeAddButtonElement.addEventListener('click', handlCloseAddPopup);
 formAddElement.addEventListener('submit', handleFormAddSubmit);
 
 closeImageButtonElement.addEventListener('click', handlCloseImagePopup);
+
+popup.addEventListener('click', closePopupOverlay);
+
+document.addEventListener('keydown', closePopupEsc);
+
+popup.removeEventListener('click', closePopupOverlay);
+
+document.removeEventListener('keydown', closePopupEsc);
