@@ -53,10 +53,12 @@ const initialCards = [
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', (evt) => closePopupEsc(popup, evt));
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', (evt) => closePopupEsc(popup, evt));
 }
 
 const createCard = (titleValue, linkValue) => {
@@ -106,6 +108,7 @@ function handleFormSubmit(evt) {
   evt.preventDefault();
   nameEditElement.innerText = nameInputElement.value;
   jobEditElement.innerText = jobInputElement.value;
+  closePopup(profilePopup);
 }
 
 function handlAddPopupClick() {
@@ -122,7 +125,8 @@ const handleFormAddSubmit = (evt) => {
   const link = inputLinkAddElement.value;
   const cardElement = createCard(title, link);
   containerElement.prepend(cardElement);
-	evt.target.reset();
+  evt.target.reset();
+  closePopup(popupAddElement);
 }
 
 initialCards.forEach((card) => {
@@ -134,25 +138,23 @@ function handlCloseImagePopup() {
   closePopup(popupImageElement)
 }
 
-function closePopupOverlay(evt) {
+function closePopupOverlay(popup, evt) {
   if (evt.target === evt.currentTarget) {
-    const popup = document.querySelector(openPopup);
     closePopup(popup);
-}
   }
+}
 
-const closePopupButtons = document.querySelectorAll();
+const closePopupButtons = document.querySelectorAll('.popup__close-button');
 closePopupButtons.forEach((button) => {
   const popup = button.closest('.popup');
   button.addEventListener('click', () => { closePopup(popup);
   });
-  popup.addEventListener('click', (evt) => { closePopupOverlay(evt);
+  popup.addEventListener('click', (evt) => { closePopupOverlay(popup, evt);
   });
 });
 
-function closePopupEsc(evt) {
+function closePopupEsc(popup, evt) {
   if (evt.key === 'Escape') {
-    const popup = document.querySelector(openPopup);
     closePopup(popup);
   }
 }
@@ -170,11 +172,3 @@ closeAddButtonElement.addEventListener('click', handlCloseAddPopup);
 formAddElement.addEventListener('submit', handleFormAddSubmit);
 
 closeImageButtonElement.addEventListener('click', handlCloseImagePopup);
-
-popup.addEventListener('click', closePopupOverlay);
-
-document.addEventListener('keydown', closePopupEsc);
-
-popup.removeEventListener('click', closePopupOverlay);
-
-document.removeEventListener('keydown', closePopupEsc);
