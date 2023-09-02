@@ -6,7 +6,7 @@ const nameInputElement = document.querySelector('.popup__input_type_name');
 const jobInputElement = document.querySelector('.popup__input_type_job');
 const nameEditElement = document.querySelector('.profile__title');
 const jobEditElement = document.querySelector('.profile__subtitle');
-const popupEditProfile = document.querySelector("popup_type_profile");
+const popupEditProfile = document.querySelector('popup_type_profile');
 const popupAddElement = document.querySelector('.popup_type_element');
 const addButtonElement = document.querySelector('.profile__add-element');
 const closeAddButtonElement = document.querySelector('.popup__close-button_add');
@@ -24,41 +24,14 @@ const picturePopupElement = document.querySelector('.popup__image');
 const captionPopupElement = document.querySelector('.popup__caption');
 const closeImageButtonElement = document.querySelector('.popup__close-button_image');
 
-const initialCards = [
-  {
-    title: 'Водопады Моссбро',
-    link: 'https://images.unsplash.com/photo-1685471178855-c1fb31d4b6c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bW9zc2JyYWUlMjBmYWxsc3xlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80'
-  },
-  {
-    title: 'Сеул',
-    link: 'https://images.unsplash.com/photo-1570192076494-f399d7681378?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx2aXN1YWwtc2VhcmNofDF8fHxlbnwwfHx8fHw%3D&w=1000&q=80'
-  },
-  {
-    title: 'Гора Сечеда',
-    link: 'https://images.unsplash.com/photo-1685990678036-bbb4f85dc3dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx2aXN1YWwtc2VhcmNofDF8fHxlbnwwfHx8fHw%3D&w=1000&q=80'
-  },
-  {
-    title: 'Коала зоопарка Дуйсбурга',
-    link: 'https://images.unsplash.com/photo-1684361822885-100cc43b7f0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx2aXN1YWwtc2VhcmNofDF8fHxlbnwwfHx8fHw%3D&w=1000&q=80'
-  },
-  {
-    title: 'Динан',
-    link: 'https://images.unsplash.com/photo-1567404412779-b7316fd42107?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx2aXN1YWwtc2VhcmNofDF8fHxlbnwwfHx8fHw%3D&w=1000&q=80'
-  },
-  {
-    title: 'Каппадокия',
-    link: 'https://images.unsplash.com/photo-1684863941689-2962fb53bc0e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx2aXN1YWwtc2VhcmNofDF8fHxlbnwwfHx8fHw%3D&w=1000&q=80'
-  }
-];
-
 function openPopup(popup) {
   popup.classList.add('popup_opened');
-  document.addEventListener('keydown', (evt) => closePopupEsc(popup, evt));
+	document.addEventListener('keydown', closePopupEsc);
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
-  document.removeEventListener('keydown', (evt) => closePopupEsc(popup, evt));
+	document.removeEventListener('keydown', closePopupEsc);
 }
 
 const createCard = (titleValue, linkValue) => {
@@ -83,10 +56,10 @@ const createCard = (titleValue, linkValue) => {
   });
 
   function handlImagePopup() {
-  openPopup(popupImageElement)
-  picturePopupElement.src = linkValue;
-  picturePopupElement.alt = titleValue;
-  captionPopupElement.textContent = titleValue;
+    openPopup(popupImageElement)
+    picturePopupElement.src = linkValue;
+    picturePopupElement.alt = titleValue;
+    captionPopupElement.textContent = titleValue;
   }
 
   imageElement.addEventListener('click', handlImagePopup);
@@ -104,7 +77,7 @@ function handlCloseEditPopup() {
   closePopup(profilePopup)
 }
 
-function handleFormSubmit(evt) {
+function handleFormProfileSubmit(evt) {
   evt.preventDefault();
   nameEditElement.innerText = nameInputElement.value;
   jobEditElement.innerText = jobInputElement.value;
@@ -126,6 +99,7 @@ const handleFormAddSubmit = (evt) => {
   const cardElement = createCard(title, link);
   containerElement.prepend(cardElement);
   evt.target.reset();
+  buttonDisable(formAddElement.querySelector(config.submitButtonSelector), config);
   closePopup(popupAddElement);
 }
 
@@ -138,24 +112,26 @@ function handlCloseImagePopup() {
   closePopup(popupImageElement)
 }
 
-function closePopupOverlay(popup, evt) {
+function closePopupOverlay(evt) {
   if (evt.target === evt.currentTarget) {
-    closePopup(popup);
+    closePopup(evt.currentTarget);
   }
 }
 
 const closePopupButtons = document.querySelectorAll('.popup__close-button');
 closePopupButtons.forEach((button) => {
   const popup = button.closest('.popup');
-  button.addEventListener('click', () => { closePopup(popup);
+  button.addEventListener('click', () => {
+    closePopup(popup);
   });
-  popup.addEventListener('click', (evt) => { closePopupOverlay(popup, evt);
+  popup.addEventListener('click', (evt) => {
+    closePopupOverlay(popup, evt);
   });
 });
 
-function closePopupEsc(popup, evt) {
+function closePopupEsc(evt) {
   if (evt.key === 'Escape') {
-    closePopup(popup);
+    closePopup(document.querySelector('.popup_opened'));
   }
 }
 
@@ -163,7 +139,7 @@ editButtonElement.addEventListener('click', handlEditPopupClick);
 
 closeButtonElement.addEventListener('click', handlCloseEditPopup);
 
-formElement.addEventListener('submit', handleFormSubmit);
+formElement.addEventListener('submit', handleFormProfileSubmit);
 
 addButtonElement.addEventListener('click', handlAddPopupClick);
 
